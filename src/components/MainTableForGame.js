@@ -13,8 +13,6 @@ function MainTableForGame({ setBestResult }) {
   const [countActions, setCountActions] = useState([]);
   const [btnStatus, setBtnStatus] = useState(false);
 
-  console.log("numberCreated", numberCreated);
-
   return (
     <div className="mainTableWrapper">
       <InputForNumberAndStartGames

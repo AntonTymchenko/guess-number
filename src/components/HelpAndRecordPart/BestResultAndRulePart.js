@@ -1,6 +1,4 @@
 function BestResultAndRulePart({ bestResult }) {
-  console.log("bestResult Length", bestResult.length);
-
   return (
     <>
       <div className="best-result-div">
