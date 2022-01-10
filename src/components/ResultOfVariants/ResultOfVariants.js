@@ -29,7 +29,8 @@ function ResultOfVariants({
     );
 
     if (quantity && order) {
-      if (order.order === quantity.quantity) {
+     
+      if (order.order === 4 && quantity.quantity === 4) {
         setBestResult((prev) => [...prev, result.length + 1]);
         setCountActions((prev) => [...prev, result.length + 1]);
         setShowModal(!showModal);
@@ -38,7 +39,7 @@ function ResultOfVariants({
     }
   }, [numberArrOfForm]);
 
-  console.log("result", result);
+  
 
   return (
     <div className="table-of-result">

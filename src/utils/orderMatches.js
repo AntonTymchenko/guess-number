@@ -1,5 +1,4 @@
 function orderMatches(arr1, arr2) {
-  console.log("arr2", arr2);
   if (!arr1) {
     return;
   }
