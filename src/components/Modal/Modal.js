@@ -11,6 +11,7 @@ export default function Modal({
   setNumberArrOfForm,
   countActions,
   setBtnStatus,
+  numberCreated,
 }) {
   const handleKeyDown = useCallback(
     (e) => {
@@ -47,7 +48,7 @@ export default function Modal({
       <div className={s.Modal}>
         <div className={s.textDivision}>
           <p className={s.text}>
-            Вы отгадали число за{" "}
+            Вы отгадали число {numberCreated} за{" "}
             <span className={s.numberTry}>
               {countActions[countActions.length - 1]}
             </span>{" "}

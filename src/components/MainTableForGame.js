@@ -52,6 +52,7 @@ function MainTableForGame({ setBestResult }) {
           setNumberArrOfForm={setNumberArrOfForm}
           countActions={countActions}
           setBtnStatus={setBtnStatus}
+          numberCreated={numberCreated}
         />
       ) : null}
     </div>
