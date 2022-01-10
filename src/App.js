@@ -2,11 +2,10 @@ import Container from "./components/Container";
 import HelpTableNumberAndRecord from "./components/HelpAndRecordPart/HelpTableNumber";
 import MainTableForGame from "./components/MainTableForGame";
 import "./App.css";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 function App() {
   const [bestResult, setBestResult] = useState([]);
-  console.log("bestResult", bestResult);
 
   return (
     <div className="App">
