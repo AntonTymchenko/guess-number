@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: lightslategray;
+  color: #fff;
+  font-size: 18px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+header {
+  margin-bottom: 20px;
+}
+header h1 {
+  text-align: center;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    border: 3px solid white;
+    width: 800px;
+
+    margin: 0 auto;
+    display: flex;
+  }
+  .variants {
+    min-height: 60vh;
+    max-height: 100vh;
+  }
+  .list-of-rules {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .list-of-rules li {
+    margin-bottom: 5px;
+  }
+  .best-result-div {
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    height: 100px;
+  }
+  .mainTableWrapper {
+    width: 50%;
+    border-right: 2px solid white;
+  }
+}
+
+.tableHelper {
+  width: 50%;
+  height: 100%;
+}
+.numberRow {
+  padding: 10px;
+  width: 100%;
+  height: 20%;
+  border: 2px solid black;
+}
+
+.numberRow ul {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 30px;
+}
+.numberRow ul li {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+.numberRow ul li:hover {
+  color: lightgray;
+  border-color: lightgray;
+}
+
+ul li.crossNumber {
+  position: relative;
+  color: red;
+  border-color: red;
+}
+
+.crossNumber::after {
+  position: absolute;
+  top: -15%;
+  left: 25%;
+  content: "\\";
+  font-size: 35px;
+  color: black;
+
+  display: block;
+}
+
+.inputPart {
+  width: 100%;
+  height: 150px;
+  border-bottom: 5px dashed greenyellow;
+}
+
+form {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start {
+  width: 100%;
+  height: 30%;
+  font-size: 20px;
+}
+
+input {
+  width: 70%;
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+.formBtn {
+  height: 40px;
+  padding: 0 5px;
+  font-size: 16px;
+}
+.listOfVariants {
+  display: flex;
+  height: 75%;
+  justify-content: space-evenly;
+}
+
+.variants {
+  width: 50%;
+  height: 100%;
+  border-right: 5px solid black;
+  text-align: center;
+}
+.variants h2 {
+  border-bottom: 5px solid black;
+  margin-bottom: 10px;
+}
+.variants ul {
+  font-size: 26px;
+  letter-spacing: 5px;
+}
+.list-of-variants-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.table-of-result-titles {
+  display: flex;
+  text-align: center;
+}
+.table-of-result-titles h2:first-child {
+  border-right: 5px solid black;
+}
+.table-of-result-titles h2 {
+  border-bottom: 5px solid black;
+}
+.list-quantity-order {
+  font-size: 26px;
+  margin-top: 10px;
+}
+.quantity-order-item span {
+  display: block;
+}
+.quantity-order-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rules-div h2 {
+  text-align: center;
+}
+.list-of-rules {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+.list-of-rules li {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    position: relative;
+    min-width: 320px;
+    max-width: 767px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .mainTableWrapper {
+    width: 100%;
+  }
+  .tableHelper {
+    width: 100%;
+  }
+  .numberRow {
+    position: absolute;
+    top: 151px;
+    left: 0;
+    height: 55px;
+    padding: 5px;
+  }
+  .table-of-result-titles {
+    border-bottom: 3px solid black;
+  }
+  .table-of-result-titles h2 {
+    border: none;
+  }
+  .listOfVariants {
+    position: relative;
+    min-height: 60vh;
+    max-height: 100vh;
+    margin-top: 56px;
+  }
+  .table-of-result-titles {
+    position: relative;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  .table-of-result-titles h2:first-child {
+    border-right: 3px solid black;
+  }
+  .table-of-result-titles h2 {
+    padding: 2px;
+  }
+  .variants {
+    min-height: 60vh;
+    max-height: 100vh;
+  }
+  .variants h2 {
+    border-bottom: none;
+    margin-bottom: 10px;
+  }
+  .listOfVariants::after {
+    position: absolute;
+    top: 40px;
+    left: 0;
+
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+  }
+  .best-result-div {
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+  }
+  .variants ul {
+    margin-top: 15px;
+  }
+}
