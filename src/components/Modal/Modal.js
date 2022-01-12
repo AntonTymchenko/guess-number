@@ -48,11 +48,11 @@ export default function Modal({
       <div className={s.Modal}>
         <div className={s.textDivision}>
           <p className={s.text}>
-            Вы отгадали число {numberCreated} за{" "}
+            Вы отгадали число <span>{numberCreated}</span> за{" "}
             <span className={s.numberTry}>
               {countActions[countActions.length - 1]}
             </span>{" "}
-            раза
+            раз(a)
           </p>
         </div>
         <div className={s.divBtn}>
