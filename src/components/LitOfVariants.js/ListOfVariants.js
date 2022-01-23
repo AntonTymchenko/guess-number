@@ -1,17 +1,21 @@
+import { useSelector } from "react-redux";
 import ItemListOfVariants from "./ItemListOfVariants";
 
-function ListOfVariants({ variants }) {
+function ListOfVariants() {
+  const variantsFromState = useSelector((state) => state.variants.variants);
+
   return (
     <div className="variants">
       <h2>Your variants</h2>
       <ul>
-        {variants.map((variant, i) => (
-          <ItemListOfVariants
-            key={i}
-            className="list-of-variants-item"
-            variant={variant}
-          />
-        ))}
+        {variantsFromState &&
+          variantsFromState.map((variant, i) => (
+            <ItemListOfVariants
+              key={i}
+              className="list-of-variants-item"
+              variant={variant}
+            />
+          ))}
       </ul>
     </div>
   );

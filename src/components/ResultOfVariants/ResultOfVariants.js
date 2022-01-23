@@ -1,45 +1,38 @@
 import ListOfResultOfVariants from "./ListOfResultOfVariants";
 import quantityOfMatchesNumbers from "../../utils/quantityOfMatchesNumbers";
 import orderMatches from "../../utils/orderMatches";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { resultOfVariants } from "../../redux/input-reducer";
+import { v4 as uuidv4 } from "uuid";
+import { countOfMoves, isModalOpen } from "../../redux/resultOfGame";
 
-function ResultOfVariants({
-  numberArrOfForm,
-  numberCreated,
-  showModal,
-  setShowModal,
-  resetState,
-  setCountActions,
-  setBestResult,
-}) {
-  const [result, setResult] = useState([]);
+function ResultOfVariants() {
+  const dispatch = useDispatch();
+  const numberCreatedFromState = useSelector(
+    (state) => state.variants.createdNumber
+  );
+  const variantsFromState = useSelector((state) => state.variants.variants);
 
   useEffect(() => {
-    if (resetState) {
-      setResult([]);
-      return;
-    }
     const quantity = quantityOfMatchesNumbers(
-      numberArrOfForm[numberArrOfForm.length - 1],
-      numberCreated
+      variantsFromState[variantsFromState.length - 1],
+      numberCreatedFromState
     );
     const order = orderMatches(
-      numberArrOfForm[numberArrOfForm.length - 1],
-      numberCreated
+      variantsFromState[variantsFromState.length - 1],
+      numberCreatedFromState
     );
 
     if (quantity && order) {
-     
       if (order.order === 4 && quantity.quantity === 4) {
-        setBestResult((prev) => [...prev, result.length + 1]);
-        setCountActions((prev) => [...prev, result.length + 1]);
-        setShowModal(!showModal);
+        dispatch(countOfMoves(variantsFromState));
+        dispatch(isModalOpen(true));
       }
-      setResult((prev) => [...prev, { ...quantity, ...order }]);
+      const result = { id: uuidv4(), ...quantity, ...order };
+      dispatch(resultOfVariants(result));
     }
-  }, [numberArrOfForm]);
-
-  
+  }, [variantsFromState]);
 
   return (
     <div className="table-of-result">
@@ -47,7 +40,7 @@ function ResultOfVariants({
         <h2>Quantity</h2>
         <h2>Order</h2>
       </div>
-      <ListOfResultOfVariants result={result} />
+      <ListOfResultOfVariants />
     </div>
   );
 }

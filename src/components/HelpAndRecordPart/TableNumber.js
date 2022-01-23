@@ -1,20 +1,33 @@
-function TableNumber() {
-  const arrOfNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+import { useSelector, useDispatch } from "react-redux";
+import {
+  changeStatus,
+  guessedNum,
+} from "../../redux/numbers-table-helper-reducer";
 
-  const onListOfNumberClick = (e) => {
-    if (e.target.className === "crossNumber") {
-      e.target.className = "";
-      return;
-    } else {
-      e.target.className = "crossNumber";
-    }
+function TableNumber() {
+  const numbers = useSelector((state) => state.numbers.numbers);
+  const dispatch = useDispatch();
+
+  const onListOfNumberClick = (id) => {
+    dispatch(changeStatus(id));
+  };
+  const doubleClickNumber = (id) => {
+    dispatch(guessedNum(id));
   };
   return (
     <div className="numberRow">
-      <ul onClick={onListOfNumberClick}>
-        {arrOfNumber.map((item, i) => (
-          <li key={i} data-num={i}>
-            {item}
+      <ul>
+        {numbers.map(({ id, checked, guessedNum }) => (
+          <li
+            key={id}
+            data-num={id}
+            onClick={() => onListOfNumberClick(id)}
+            className={
+              checked ? "crossNumber" : guessedNum ? "guessedNum" : null
+            }
+            onDoubleClick={() => doubleClickNumber(id)}
+          >
+            {id}
           </li>
         ))}
       </ul>

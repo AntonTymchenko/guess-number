@@ -1,20 +1,25 @@
 import { useState } from "react";
 import creatorNumber from "../utils/creatorNumber";
 import uniqueNumbersCheck from "../utils/uniqueNumbersCheck";
+import {
+  createdNumber,
+  addVariants,
+  startBtnStatus,
+} from "../redux/input-reducer";
+import { useDispatch, useSelector } from "react-redux";
 
-function InputForNumberAndStartGames({
-  setNumberCreated,
-  numberCreated,
-  setNumberArrOfForm,
-  numberArrOfForm,
-  setResetState,
-  btnStatus,
-  setBtnStatus,
-}) {
+function InputForNumberAndStartGames() {
   const [inputVal, setInputVal] = useState("");
+  const dispatch = useDispatch();
+  const numberCreatedFromState = useSelector(
+    (state) => state.variants.createdNumber
+  );
+  const isStartBtnDisabled = useSelector(
+    (state) => state.variants.startBtnStatus
+  );
 
   const onInputChange = (e) => {
-    if (numberCreated) {
+    if (numberCreatedFromState) {
       setInputVal(e.target.value);
     } else {
       alert("Нажмите на старт для начала.)");
@@ -22,13 +27,13 @@ function InputForNumberAndStartGames({
   };
 
   const onStartClick = () => {
-    if (numberCreated) {
+    if (numberCreatedFromState) {
       alert("Игра уже идет! Введите число");
       return;
     } else {
       let number = creatorNumber();
-      setNumberCreated(number);
-      setBtnStatus(true);
+      dispatch(createdNumber(number));
+      dispatch(startBtnStatus(true));
     }
   };
   const onFormSubmit = (e) => {
@@ -37,8 +42,7 @@ function InputForNumberAndStartGames({
       alert("Введите число из 4 уникальных цифр!! Не больше чем 4 символа");
       return;
     } else {
-      setNumberArrOfForm((prev) => [...prev, inputVal]);
-      setResetState(false);
+      dispatch(addVariants(inputVal));
       setInputVal("");
     }
   };
@@ -56,7 +60,7 @@ function InputForNumberAndStartGames({
         <button
           type="button"
           className="formBtn"
-          disabled={!btnStatus}
+          disabled={!isStartBtnDisabled}
           onClick={onFormSubmit}
         >
           Введите номер
@@ -65,10 +69,10 @@ function InputForNumberAndStartGames({
       <button
         type="button"
         className="start"
-        disabled={btnStatus}
+        disabled={isStartBtnDisabled}
         onClick={onStartClick}
       >
-        {!btnStatus ? "НАЧАЛО ИГРЫ" : "ТЕПЕРЬ УГАДАЙТЕ ЧИСЛО :)"}
+        {!isStartBtnDisabled ? "СТАРТ ИГРЫ" : "ТЕПЕРЬ УГАДАЙТЕ ЧИСЛО :)"}
       </button>
     </div>
   );

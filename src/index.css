@@ -57,9 +57,10 @@ header h1 {
     display: flex;
     padding-left: 20px;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 10%;
-    height: 100px;
+    height: 80px;
   }
   .mainTableWrapper {
     width: 50%;
@@ -113,6 +114,10 @@ ul li.crossNumber {
   color: black;
 
   display: block;
+}
+.guessedNum {
+  color: green;
+  border-color: green;
 }
 
 .inputPart {
@@ -202,7 +207,12 @@ input {
 .list-of-rules li {
   margin-bottom: 5px;
 }
-
+.switch-division {
+  margin-right: 20px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
 @media screen and (max-width: 767px) {
   .container {
     position: relative;
@@ -272,6 +282,7 @@ input {
     display: flex;
     padding-left: 20px;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 10%;
   }

@@ -1,16 +1,19 @@
 import ItemOfListOfResultOfVariants from "./ItemOfListOfResultOfVariants";
-import { v4 as uuidv4 } from "uuid";
+import { useSelector } from "react-redux";
 
-function ListOfResultOfVariants({ result = [] }) {
+function ListOfResultOfVariants() {
+  const result = useSelector((state) => state.variants.resultOfVariants);
+
   return (
     <ul className="list-quantity-order">
-      {result.map((item) => (
-        <ItemOfListOfResultOfVariants
-          key={uuidv4()}
-          quantity={item.quantity}
-          order={item.order}
-        />
-      ))}
+      {result &&
+        result.map((item) => (
+          <ItemOfListOfResultOfVariants
+            key={item.id}
+            quantity={item.quantity}
+            order={item.order}
+          />
+        ))}
     </ul>
   );
 }
