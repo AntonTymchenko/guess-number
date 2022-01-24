@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/guess-number/static/css/main.b44a7f59.css",
+    "main.css": "/guess-number/static/css/main.8e5e2ab1.css",
     "main.js": "/guess-number/static/js/main.6508d1bb.js",
     "index.html": "/guess-number/index.html",
-    "main.b44a7f59.css.map": "/guess-number/static/css/main.b44a7f59.css.map",
+    "main.8e5e2ab1.css.map": "/guess-number/static/css/main.8e5e2ab1.css.map",
     "main.6508d1bb.js.map": "/guess-number/static/js/main.6508d1bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.b44a7f59.css",
+    "static/css/main.8e5e2ab1.css",
     "static/js/main.6508d1bb.js"
   ]
 }
