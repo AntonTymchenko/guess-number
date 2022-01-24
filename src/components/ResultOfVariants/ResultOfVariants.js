@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resultOfVariants } from "../../redux/input-reducer";
 import { v4 as uuidv4 } from "uuid";
 import { countOfMoves, isModalOpen } from "../../redux/resultOfGame";
+import VariantsAndREsultOfVariant from "../VariantsAndREsultOfVariant/VariantsAndREsultOfVariant";
 
 function ResultOfVariants() {
   const dispatch = useDispatch();
@@ -34,15 +35,7 @@ function ResultOfVariants() {
     }
   }, [variantsFromState]);
 
-  return (
-    <div className="table-of-result">
-      <div className="table-of-result-titles">
-        <h2>Quantity</h2>
-        <h2>Order</h2>
-      </div>
-      <ListOfResultOfVariants />
-    </div>
-  );
+  return <VariantsAndREsultOfVariant />;
 }
 
 export default ResultOfVariants;

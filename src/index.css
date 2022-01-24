@@ -214,6 +214,16 @@ input {
   align-items: center;
 }
 @media screen and (max-width: 767px) {
+  table {
+    margin-top: 55px;
+  }
+  table thead {
+    height: 20%;
+  }
+  .table-wrapper {
+    min-height: 60vh;
+    border-bottom: 5px dashed greenyellow;
+  }
   .container {
     position: relative;
     min-width: 320px;
@@ -289,4 +299,34 @@ input {
   .variants ul {
     margin-top: 15px;
   }
+}
+
+table {
+  width: 100%;
+}
+.table-head {
+  outline: 1px solid black;
+}
+.table-head th {
+  height: 100%;
+  padding: 5px;
+}
+.table-head th:not(:last-child) {
+  border-right: 2px solid black;
+}
+.table-head th:first-child {
+  width: 50%;
+}
+.second-child {
+  width: 25%;
+}
+
+tbody {
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 26px;
+}
+tr:first-child,
+td:first-child {
+  border-right: 1px solid black;
 }

@@ -5,8 +5,7 @@ function ListOfVariants() {
   const variantsFromState = useSelector((state) => state.variants.variants);
 
   return (
-    <div className="variants">
-      <h2>Your variants</h2>
+    <div>
       <ul>
         {variantsFromState &&
           variantsFromState.map((variant, i) => (
